@@ -33,9 +33,19 @@ def string_to_list(my_string):
     split_string[i] = split_string[i].strip()
   return split_string
 
+def gems_valid(gems):
+  for i in range(len(gems)):
+    if gem_types.get(gems[i]) == None:
+      return False
+  return True
+
 def main():
-  jewelry = input("Select a jewelry type\n")
+  jewelry = input("Select a jewelry type\n").strip().lower()
+  while jewelry_types.get(jewelry) == None:
+    jewelry = input("Select a jewelry type\n").strip().lower()
   gems = string_to_list(input("Select gems (comma delimited)\n").strip().lower())
+  while not gems_valid(gems):
+    gems = string_to_list(input("Select gems (comma delimited)\n").strip().lower())
 
   value = buy_jewelry(jewelry, gems)
 
