@@ -14,6 +14,7 @@ def buy_jewelry(jewelry_type, gems):
   total += jewelry_types[jewelry_type]
   for i in range(len(gems)):
     total += gem_types[gems[i]]
+  print("The cost is ${:.2f}".format(total))
   return total
 
 
@@ -39,20 +40,25 @@ def gems_valid(gems):
       return False
   return True
 
-def main():
-  jewelry = input("Select a jewelry type\n").strip().lower()
-  while jewelry_types.get(jewelry) == None:
-    jewelry = input("Select a jewelry type\n").strip().lower()
-  gems = string_to_list(input("Select gems (comma delimited)\n").strip().lower())
-  while not gems_valid(gems):
-    gems = string_to_list(input("Select gems (comma delimited)\n").strip().lower())
+# def main():
+  # jewelry = input("Select a jewelry type\n").strip().lower()
+  # while jewelry_types.get(jewelry) == None:
+  #   jewelry = input("Select a jewelry type\n").strip().lower()
+  # gems = string_to_list(input("Select gems (comma delimited)\n").strip().lower())
+  # while not gems_valid(gems):
+  #   gems = string_to_list(input("Select gems (comma delimited)\n").strip().lower())
 
-  value = buy_jewelry(jewelry, gems)
+  # value = buy_jewelry(jewelry, gems)
+
+# jewelry = "earrings"
+# gems = ["ruby", "emerald"]
+# value = buy_jewelry(jewelry, gems)
+
+# print(f"The cost of a {jewelry} with {list_to_string(gems)} is: " + "${:.2f}".format(value))
+buy_jewelry("earrings", ["ruby"])
+
+# print(f"The cost of a {jewelry} with {list_to_string(gems)} is: " + "${:.2f}".format(value))
 
 
-  print(f"The cost of a {jewelry} with {list_to_string(gems)} is: " + "${:.2f}".format(value))
-
-
-if __name__ == "__main__":
-    main()
-
+# if __name__ == "__main__":
+#     main()
