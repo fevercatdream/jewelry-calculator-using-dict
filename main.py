@@ -31,12 +31,10 @@ def list_to_string(my_list):
   if len(my_list) > 1:
     output = ''
     for i in range(len(my_list)):
-      if i < len(my_list) - 2:
-        output += f"{my_list[i]} , "
-      elif i == len(my_list) - 2:
-        output += f"{my_list[i]},"
+      if i < len(my_list) - 1:
+        output += f"{my_list[i]}, "
       else:
-        output += f" & {my_list[i]}"
+        output += f"& {my_list[i]}"
     return output
 
 def string_to_list(my_string):
@@ -63,9 +61,9 @@ def main():
 
 # jewelry = "earrings"
 # gems = ["ruby", "emerald"]
-# value = buy_jewelry(jewelry, gems)
+  value = buy_jewelry(jewelry, gems)
 
-# print(f"The cost of a {jewelry} with {list_to_string(gems)} is: " + "${:.2f}".format(value))
+  print(f"The cost of {jewelry} with {list_to_string(gems)} is: " + "${:.2f}".format(value))
 # buy_jewelry("necklace", [])
 
   # print(f"The cost is: " + "${:.2f}".format(value))
