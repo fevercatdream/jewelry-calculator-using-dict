@@ -21,23 +21,32 @@ def buy_jewelry(jewelry_type, gems):
   # print("The cost is ${:.2f}".format(total))
   return total
 
+# def list_to_string(my_list):
+#   if len(my_list) == 0:
+#     return ""
+#   if len(my_list) == 1:
+#     return my_list[0]
+#   if len(my_list) == 2:
+#     return f"{my_list[0]} & {my_list[1]}"
+#   if len(my_list) > 1:
+#     output = ''
+#     for i in range(len(my_list)):
+#       if i < len(my_list) - 1:
+#         output += f"{my_list[i]}, "
+#       else:
+#         output += f"& {my_list[i]}"
+#     return output
+
 def list_to_string(my_list):
-  if len(my_list) == 0:
-    return ""
-  if len(my_list) == 1:
-    return my_list[0]
   if len(my_list) == 2:
-    return f"{my_list[0]} & {my_list[1]}"
-  if len(my_list) > 1:
-    output = ''
-    for i in range(len(my_list)):
-      if i < len(my_list) - 1:
-        output += f"{my_list[i]}, "
-      else:
-        output += f"& {my_list[i]}"
-    return output
+    return " & ".join(my_list)
+  if len(my_list) > 2:
+    return ", ".join(my_list[:-1]) + f", & {my_list[-1]}"
+  return "".join(my_list)
 
 def string_to_list(my_string):
+  if my_string == "":
+    return []
   split_string = my_string.split(",")
   for i in range(len(split_string)):
     split_string[i] = split_string[i].strip()
@@ -63,7 +72,10 @@ def main():
 # gems = ["ruby", "emerald"]
   value = buy_jewelry(jewelry, gems)
 
-  print(f"The cost of {jewelry} with {list_to_string(gems)} is: " + "${:.2f}".format(value))
+  if len(gems) > 1:
+    print(f"The cost of {jewelry} with {list_to_string(gems)} is: ${value:.2f}")
+  else:
+    print(f"The cost of {jewelry} is: ${value:.2f}")
 # buy_jewelry("necklace", [])
 
   # print(f"The cost is: " + "${:.2f}".format(value))
